@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Item</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .quantity-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .quantity-container label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+            color: #333;
+        }
+
+        .quantity-container input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .quantity-container input[type="number"]::-webkit-inner-spin-button,
+        .quantity-container input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .quantity-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quantity-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #00000080;
+    text-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #0f8bad80;
+    transition: 0.5s ease;
+    user-select: none;
+}
+    </style>
+</head>
+<body>
+    <h2>put how much stuff you need in kilograms.</h2>
+    <div class="quantity-container">
+        <label for="quantity">Quantity:</label>
+        <input id="quantity" type="number" value="1" min="1" />
+        <button onclick="submitOrder()">Submit</button>
+    </div>
+    <form action="index.html">
+        <button class="back-button">Return to home</button>
+      </form>
+
+    <script>
+        function submitOrder() {
+            const quantity = document.getElementById('quantity').value;
+            
+            
+            localStorage.setItem('orderQuantity', quantity);
+
+           
+            window.location.href = 'delivery.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Bad Intro</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: none; 
+        }
+
+        .instruction {
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="instruction" id="instructionText"></div>
+
+   
+    <video id="introVideo">
+        <source src="breaking_bad_intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        const introVideo = document.getElementById('introVideo');
+        const instructionText = document.getElementById('instructionText');
+
+
+        document.body.addEventListener('click', () => {
+            instructionText.style.display = 'none';  
+            introVideo.style.display = 'block';     
+            introVideo.play();                      
+        });
+
+        
+        introVideo.addEventListener('ended', () => {
+            window.location.href = "login.html";   
+        });
+
+        
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 15000); 
+    </script>
+
+</body>
+</html>
